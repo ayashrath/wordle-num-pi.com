@@ -25,7 +25,7 @@ def new_game():
     """
     Starts a new game and returns a game ID
     """
-    game_id = str(uuid.uuid4)  # gens a random id
+    game_id = str(uuid.uuid4())  # gens a random id
     games[game_id] = Wordle()
     return {
         "game_id": game_id,
