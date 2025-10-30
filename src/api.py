@@ -13,7 +13,7 @@ import uuid  # for game id
 app = FastAPI()
 
 # stores all the active games in memory - in deployment it should be stored in a db, but for my application - not needed
-games = {}
+games = {}  # TODO - add a way to make it store the games in dbs and clear the dict - useful when recording for solvers
 
 
 class GuessRequest(BaseModel):

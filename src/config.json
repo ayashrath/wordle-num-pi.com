@@ -1,0 +1,5 @@
+{
+    "word_list_guess": "wordle_allowed_guesses.txt",
+    "word_list_ans": "wordle_answers_alphabetical.txt",
+    "max_guesses": 6
+}
