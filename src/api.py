@@ -53,3 +53,11 @@ def make_guess(game_id: str, guess_request: GuessRequest):
 
     game = games[game_id]
     return game.make_guess(guess_request.guess)  # makes the guess and returns it
+
+
+@app.post("/all_games")
+def all_games():
+    """
+    Starts a new game and returns a game ID
+    """
+    return {"all_games": [game for game in games]}

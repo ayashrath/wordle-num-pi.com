@@ -89,6 +89,14 @@ mutable struct Client
     end
 end
 
+
+# Warn
+
+if Threads.nthreads() == 1
+    @warn "Julia running with 1 thread. Start Julia with JULIA_NUM_THREADS>1 so background requests run while QML.exec() is active."
+end
+
+
 # Functions that QML can call
 
 function start_newgame(client::Client)  # TODO - make it such that the number of tries is provided and the file to be used too in post
@@ -118,13 +126,13 @@ function start_newgame(client::Client)  # TODO - make it such that the number of
             empty!(client.key_colours)
 
             # robustly extract game_id from JSON (string or symbol key)
-            game_id = nothing
             if haskey(data, "game_id")
-                game_id[] = data["game_id"]
+                client.game_id[] = string(data["game_id"])
             elseif haskey(data, :game_id)
-                game_id[] = data[:game_id]
+                client.game_id[] = string(data[:game_id])
+            else
+                client.game_id[] = nothing
             end
-            client.game_id[] = game_id # Update struct field
 
             client.notif[] = "Game started!"
         end

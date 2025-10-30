@@ -1,6 +1,7 @@
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
 import jlqml // <-- This is required for @qmlfunction
 
 ApplicationWindow {
@@ -28,6 +29,17 @@ ApplicationWindow {
         interval: 3000
         // Clear the notification after 3 seconds
         onTriggered: notificationText.text = "" 
+    }
+
+    // Run start_newgame after event loop starts (single-shot)
+    Timer {
+        id: startupTimer
+        interval: 0
+        running: true
+        repeat: false
+        onTriggered: {
+            Julia.jl_start_newgame()
+        }
     }
 
     // --- Main Layout ---
@@ -175,7 +187,6 @@ ApplicationWindow {
     // As per your script's comments, call start_newgame() once the UI is ready
     Component.onCompleted: {
         // --- Calls the @qmlfunction-registered function ---
-        Julia.jl_start_newgame()
     }
 }
 
