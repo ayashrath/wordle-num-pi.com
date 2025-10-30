@@ -1,0 +1,5 @@
+[deps]
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+Observables = "510215fc-4207-5dde-b226-833fc4488ee2"
+QML = "2db162a6-7e43-52c3-8d84-290c1c42d82a"

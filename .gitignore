@@ -3,3 +3,6 @@
 
 # Word List
 data/*.txt
+
+# Pyc files
+src/__pycache__/
