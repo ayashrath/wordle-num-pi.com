@@ -8,8 +8,8 @@ import json
 
 
 # constants
-WORD_LIST_DIR = "./data/"
-with open("./src/config.json", "r") as fh:
+WORD_LIST_DIR = "../data/"
+with open("./config.json", "r") as fh:
     data = json.load(fh)
 WORD_LIST_GUESS = data["word_list_guess"]
 WORD_LIST_ANS = data["word_list_ans"]
@@ -136,5 +136,5 @@ class Wordle:
             "lost": self.lost,
             "win": self.win,
             "guesses": self.guesses,
-            # "target": self.target_word  # for debugging
+            "target": self.target_word  # for debugging
         }
