@@ -1,0 +1,3 @@
+"""
+Defines the game logic
+"""
