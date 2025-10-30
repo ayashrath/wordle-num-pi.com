@@ -2,6 +2,8 @@
 Provides a GUI for the game
 
 Note: Am not going into any trouble now, will just use Pygame to make the stuff
+
+Does not have the keyboard stuff as not needed
 """
 
 import sys
@@ -206,7 +208,9 @@ class WordleClient:
                 y = start_y + r * (tile_size + tile_margin)
                 for c in range(5):
                     x = start_x + c * (tile_size + tile_margin)
-                    self.draw_tile(x, y, tile_size, "", self._colour(COLOUR_MAP["bg"]), self._colour(COLOUR_MAP["border"]))
+                    self.draw_tile(
+                        x, y, tile_size, "", self._colour(COLOUR_MAP["bg"]), self._colour(COLOUR_MAP["border"])
+                    )
 
         # draw notif
         if self.notification:
