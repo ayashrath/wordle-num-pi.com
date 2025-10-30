@@ -26,8 +26,8 @@ class Wordle:
         - yellow (=y): in the target, but not in this position
         - green (=g): in the target and in this position
 
-    Also there is some extra logic required to deal with repeating letters: if you use a letter twice and it only 
-    appears in the word once but neither is in the right spot, the first instance will be yellow and the 
+    Also there is some extra logic required to deal with repeating letters: if you use a letter twice and it only
+    appears in the word once but neither is in the right spot, the first instance will be yellow and the
     second will not. If the letter does appear in the word twice but neither is in the right spot, both will be yellow.
     """
     def __init__(self, word_list_guess: str, word_list_ans: str, max_guesses: int = 6):
@@ -38,7 +38,7 @@ class Wordle:
         Args:
             - word_list_guess: list of guesses.
             - word_list_ans: list of possible ans.
-            - max_guesses (=6): Am allowing it to be dynamic as can help find exactly how many moves a solver needs to 
+            - max_guesses (=6): Am allowing it to be dynamic as can help find exactly how many moves a solver needs to
                 solve even if it exceeds the normal limit of 6.
         """
         if (
@@ -111,7 +111,7 @@ class Wordle:
             self.win = True
         elif len(self.guesses) >= self.max_guesses:
             self.lost = True
-        
+
         return self.get_state()
 
     def get_state(self):
