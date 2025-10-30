@@ -80,6 +80,7 @@ class Wordle:
 
         self.target_word = random.choice(self.ans_list)
         self.len_word = 5  # can be changed if we are using word_list.txt - but not worth making it dynamic
+        # TODO - add dynamic len_word, and ensure if its dynamic, it must depend on word_list.txt
         self.max_guesses = max_guesses
         self.guesses = []  # List of tuples (guess, result)
 
