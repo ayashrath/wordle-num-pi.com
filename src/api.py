@@ -20,7 +20,7 @@ class GuessRequest(BaseModel):
     guess: str
 
 
-@app.post("/game/new")
+@app.post("/new")
 def new_game():
     """
     Starts a new game and returns a game ID

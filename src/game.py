@@ -31,8 +31,8 @@ class Wordle:
     second will not. If the letter does appear in the word twice but neither is in the right spot, both will be yellow.
     """
     def __init__(
-        self, word_list_guess: str = "wordle_allowed_guesses.txt",
-        word_list_ans: str = "wordle_answers_alphabetical.txt",
+        self, word_list_guess: str = "../data/wordle_allowed_guesses.txt",  # TODO - use os to make it work properly
+        word_list_ans: str = "../data/wordle_answers_alphabetical.txt",
         max_guesses: int = 6
     ):
         """
@@ -45,16 +45,19 @@ class Wordle:
             - max_guesses (=6): Am allowing it to be dynamic as can help find exactly how many moves a solver needs to
                 solve even if it exceeds the normal limit of 6.
         """
+        word_list_guess_fn = word_list_guess[8:]
+        word_list_ans_fn = word_list_ans[8:]
+
         if (
-            word_list_guess not in ("word_list.txt", "wordle_allowed_guesses.txt") or
-            word_list_ans not in ("word_list.txt", "wordle_answers_alphabetical.txt")
+            word_list_guess_fn not in ("word_list.txt", "wordle_allowed_guesses.txt") or
+            word_list_ans_fn not in ("word_list.txt", "wordle_answers_alphabetical.txt")
         ):
             raise FileNotFoundError(
                 "Choose one of these files appropriately - word_list.txt, wordle_answers_alphabetical.txt, "
                 "wordle_allowed_guesses.txt"
             )
-        if word_list_ans != word_list_guess and (
-            word_list_ans == "word_list.txt" or word_list_guess == "word_list.txt"
+        if word_list_ans_fn != word_list_guess_fn and (
+            word_list_ans_fn == "word_list.txt" or word_list_guess_fn == "word_list.txt"
         ):
             raise ValueError("If using word_list.txt, it must be both the ans and the guess lists")
 
