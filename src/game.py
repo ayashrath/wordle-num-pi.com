@@ -30,7 +30,11 @@ class Wordle:
     appears in the word once but neither is in the right spot, the first instance will be yellow and the
     second will not. If the letter does appear in the word twice but neither is in the right spot, both will be yellow.
     """
-    def __init__(self, word_list_guess: str, word_list_ans: str, max_guesses: int = 6):
+    def __init__(
+        self, word_list_guess: str = "wordle_allowed_guesses.txt",
+        word_list_ans: str = "wordle_answers_alphabetical.txt",
+        max_guesses: int = 6
+    ):
         """
         Only takes files - word_list.txt, wordle_allowed_guesses.txt and wordle_answers_alphabetical.txt
         In word_list.txt, both the possible ans and guesses are the same list. While the wordle_*.txt are disjoint sets
@@ -72,7 +76,7 @@ class Wordle:
         self.lost = False
         self.win = False
 
-    def make_move(self, guess_word):
+    def make_guess(self, guess_word):
         guess_word = guess_word.upper()
 
         # instead of raising exceptions, its a better idea to return a dict with key error
